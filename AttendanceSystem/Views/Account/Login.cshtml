@@ -1,0 +1,43 @@
+﻿@model AttendanceSystem.ViewModels.LoginViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+<style>
+    
+        .btn {
+        background-color: #bf272d;
+        color: white;
+            font-weight: bold;
+        }
+</style>
+</head>
+
+<body>  
+
+    <h2>Login</h2>
+    <form asp-action="Login" method="post">
+        <div class="form-group mt-3">
+            <label asp-for="@Model.Email"></label>
+            <input asp-for="@Model.Email" class="form-control" type="email" />
+            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        </div>  
+
+        <div class="form-group mt-3">
+            <label asp-for="@Model.Password" ></label>
+            <input asp-for="@Model.Password" class="form-control" type="password" />
+            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn mt-3">Login</button>
+    </form>
+
+</body>
+</html>

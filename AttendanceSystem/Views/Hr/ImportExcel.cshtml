@@ -1,0 +1,15 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+
+<h2>Import Excel Data</h2>
+
+<form asp-action="ImportExcel" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label for="file">Upload Excel File</label>
+        <input type="file" name="file" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>

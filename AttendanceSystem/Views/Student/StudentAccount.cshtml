@@ -1,0 +1,87 @@
+﻿@model Student
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StudentAccount</title>
+	<link href="~/css/profilestyle.css" rel="stylesheet" />
+    <style>
+        .cont {
+            height: 50px;
+            width: fit-content;
+            background-color: rgb(128,128,128,0.2);
+            border-left: 3px solid black;
+            border-radius:3px;
+            margin:10px 0;
+        }
+
+        #headtitle.cont {
+                background-color:white;
+                padding:0 10px;
+              border-left: 5px solid #bf272d;
+            }   
+
+        .left {
+            background-color: #bf272d !important;
+
+        }
+
+     
+    </style>
+</head>
+<body>
+ 
+    <div class="cont" id="headtitle">
+        <h1>
+            My Profile
+        </h1>
+    </div>
+
+
+    <div class="wrapper">
+        <div class="left">
+            <img src="~/@Model.PhotoPath"
+                 alt="user" >
+            <h4>@Model.Name</h4>
+            <p>@Model.Role</p>
+        </div>
+        <div class="right">
+            <div class="info">
+                <h3>Information</h3>
+                <div class="info_data"> 
+                    <div class="data">
+                        <h4>Email</h4>
+                        <p>@Model.Email</p>
+                    </div>
+                    <div class="data">
+                        <h4>Age</h4>
+                        <p>@Model.Age</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects">
+                <h3> @Model.Intake.IntakeName</h3>
+                <div class="projects_data">
+                    <div class="data">
+                        <h4>Department</h4>
+                        <p>@Model.DepartmentNavigation.DeptName</p>
+                    </div>
+                    <div class="data">
+                        <h4>Program</h4>
+                        <p> @Model.Program.ProgName</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+ 
+</body>
+</html>
