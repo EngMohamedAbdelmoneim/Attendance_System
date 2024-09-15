@@ -107,7 +107,7 @@ namespace AttendanceSystem.Controllers
                 else
                 {
       
-                    return RedirectToAction("Account", "Error");
+                    return RedirectToAction("Error", "Account");
                 }
             }
 

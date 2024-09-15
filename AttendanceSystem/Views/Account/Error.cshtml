@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -8,12 +7,17 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-   
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        a{
+            display:block;
+            width:100%;
+        }
+    </style>
 </head>
 <body>
-    <h1 color="red" align="center">Error In Roles</h1>
+    <h1 color="red" align="center">Error Can't be <span style="color:red">access</span></h1>
 
-    <button asp-action="StudentAcount" asp-controller="Student" class="btn-danger" value="Login">Login</button>
-
+    <a asp-action="Login" asp-controller="Account" class="btn btn-danger fw-bold">Login</a>
 </body>
 </html>

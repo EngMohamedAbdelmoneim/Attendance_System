@@ -6,85 +6,86 @@
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Register</title>
-    <style>
-        .btn {
-            background-color: #bf272d;
-            color: white;
-            font-weight: bold;
-        }
-    </style>
-</head>
+
 <body>
 
-    <h2>Register</h2>
+    <h2><span>Re</span>gister</h2>
 
     <form asp-action="Register" method="post" enctype="multipart/form-data">
 
-
-
-        <div class="form-group mt-3">
-            <label asp-for="Photo"></label>
-            <input class="form-control" type="file" asp-for="Photo" id="imageInput"  />
-            <span asp-validation-for="Photo" class="text-danger"></span>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        
+        
+        <div class="form-group">
+            <div class="cont">
+                <img id="profileImage" src="~/images/profile-avatar.png" alt="Avatar" />
+                <div class="overlay">
+                    <div class="text">Upload Image</div>
+                </div>
+            </div>
+            <input id="imageUpload" type="file" 
+            name="profile_photo" placeholder="Photo" required="" accept="image/*" capture>
         </div>
-
-        <div>
-            <img id="displayImage" src="" alt="Selected Image" style="max-width: 300px; margin-top: 20px; display: none; border-radius:5px" />
-        </div>
-
-        <div class="form-group mt-3">
-            <label asp-for="Username" ></label>
-            <input asp-for="Username"  class="form-control" />
+        <div class="form-floating mt-3">
+            <input asp-for="Username" type="text" class="form-control" id="floatingInput" placeholder="Password">
+            <label asp-for="Username">Username</label>
             <span asp-validation-for="Username" class="text-danger"></span>
         </div>
 
-        <div class="form-group mt-3">
-            <label asp-for="Password"  ></label>
-            <input asp-for="Password" class="form-control" type="password" />
+        <div class="form-floating mt-3">
+            <input asp-for="Password" type="password" class="form-control" id="floatingInput" placeholder="Password">
+            <label asp-for="Password">Password</label>
             <span asp-validation-for="Password" class="text-danger"></span>
         </div>
-        <div class="form-group mt-3">
-            <label asp-for="Age"  ></label>
-            <input asp-for="Age" class="form-control" type="number" />
+        <div class="form-floating mt-3">
+            <input asp-for="Age" type="number" class="form-control" id="floatingInput" placeholder="Password">
+            <label asp-for="Age">Age</label>
             <span asp-validation-for="Age" class="text-danger"></span>
         </div>
-        <div class="form-group mt-3">
-            <label asp-for="Email"></label>
-            <input asp-for="Email" class="form-control" type="email" />
+        <div class="form-floating my-3">
+            <input asp-for="Email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label asp-for="Email">Email address</label>
             <span asp-validation-for="Email" class="text-danger"></span>
+
+        </div>
+        <div class="form-floating ">
+            <input asp-for="PhoneNumber" type="number" class="form-control" id="floatingInput" placeholder="Password">
+            <label asp-for="PhoneNumber">Phone Number</label>
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div>
         <div class="form-group mt-3">
-            <label asp-for="Department"></label>
-            <select asp-items="@ViewBag.Departments" asp-for="Department" class="form-select"></select>
+            <select asp-items="@ViewBag.Departments" asp-for="Department" class="form-select">
+                <option value="" disabled selected>... Select Department ...</option>
+            </select>
             <span asp-validation-for="Department" class="text-danger"></span>
         </div>
         <div class="form-group mt-3">
-            <label asp-for="Intake"></label>
-            <select asp-items="@ViewBag.Intakes" asp-for="Intake" class="form-select"></select>
+            <select asp-items="@ViewBag.Intakes" asp-for="Intake" class="form-select">
+                <option value="" disabled selected>... Select Intake ...</option>
+            </select>
             <span asp-validation-for="Intake" class="text-danger"></span>
         </div>
         <div class="form-group mt-3">
-            <label asp-for="Program"></label>
-            <select asp-items="@ViewBag.Programs" asp-for="Program" class="form-select"></select>
+            <select asp-items="@ViewBag.Programs" asp-for="Program" class="form-select">
+                <option value="" disabled selected>... Select Program ...</option>
+            </select>
             <span asp-validation-for="Program" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn mt-3">Register</button>
+        <button type="submit" class="btn my-3">Register</button>
     </form>
 
     <script>
-        document.getElementById('imageInput').addEventListener('change', function (event) {
+        $(".overlay").click(function (e) {
+        $("#imageUpload").click();
+        });
+        document.getElementById('imageUpload').addEventListener('change', function (event) {
             const file = event.target.files[0]; 
-
             if (file) {
                 const reader = new FileReader();
 
                 reader.onload = function (e) {
                     const imageUrl = e.target.result;
-                    const displayImage = document.getElementById('displayImage'); 
+                    const displayImage = document.getElementById('profileImage'); 
 
                     displayImage.src = imageUrl; 
                     displayImage.style.display = 'block';
@@ -95,4 +96,3 @@
         });
     </script>
 </body>
-</html>
